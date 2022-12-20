@@ -12,7 +12,6 @@ class BlogTests(TestCase):
             email='test@email.com',
             password='secret'
         )
-        
         self.post = Post.objects.create(
             title = 'Yangi post',
             body = 'Post matni',
