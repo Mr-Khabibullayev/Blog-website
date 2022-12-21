@@ -1,9 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Yangi post</h1>
+<div class="create_box">
+    <h1 class="new_post_h1">Yangi post</h1>
     <form action="" method="post">{% csrf_token %}
         {{ form.as_p }}
-        <input type="submit" value="Saqlash">
+        <input class="submit_create" type="submit" value="Saqlash">
     </form>
+</div>
 {% endblock content %}

@@ -23,7 +23,7 @@ class Post_Create_Delete(CreateView):
 class Blog_Update_View(UpdateView):
     model = Post
     template_name = 'post_edit.html'
-    fields = ['title','body']
+    fields = ['title','body',]
     
 class Blog_Delete_View(DeleteView):
     model = Post
