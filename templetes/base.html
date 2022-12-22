@@ -1,6 +1,7 @@
-{% load static  %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,15 +9,26 @@
     <title>Mr Khabibullayev Blog</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
+
 <body>
     <header>
         <h1><a href="{% url 'home' %}">Mr Khabibullayev Blog</a></h1>
         <!-- <h2><a href="{% url 'post_news' %}">Yangi post yozish</a></h2> -->
         <h1><a href="{% url 'post_news' %}">Yangi post yozish</a></h1>
     </header>
+    {% if user.is_authenticated %}
+    <p>Xush kelibsiz {{ user.username }}</p>
+    <p><a href="{% url 'logout' %}">Chiqib Ketish</a></p>
+    {% else %}
+    <p>
+        <a href="{% url 'login' %}">Saytga kirish</a>
+        <a href="{% url 'signup' %}">Royhatdan O'tish</a>
+    </p>
+    {% endif %}
     <div class="container">
         {% block content %}
         {% endblock %}
     </div>
 </body>
+
 </html>
